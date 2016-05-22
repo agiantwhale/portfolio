@@ -103,10 +103,19 @@ gulp.task('extras', () => {
   return gulp.src([
     'app/*.*',
     'app/CNAME',
+    'app/scripts/*.json',
     '!app/*.html'
   ], {
     dot: true
   }).pipe(gulp.dest('dist'));
+});
+
+gulp.task('configs', () => {
+  return gulp.src([
+    'app/configs/*.*',
+  ], {
+    dot: true
+  }).pipe(gulp.dest('dist/configs'));
 });
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
@@ -180,7 +189,7 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras', 'resume'], () => {
+gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras', 'configs', 'resume'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
