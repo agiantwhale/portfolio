@@ -16,7 +16,10 @@ gulp.task('resume', () => {
 
 gulp.task('deploy', ['build'], () => {
   return gulp.src('./dist/**/*')
-    .pipe($.ghPages());
+    .pipe($.ghPages({
+      remoteUrl: 'git@github.com:agiantwhale/agiantwhale.github.io.git',
+      branch: 'master'
+    }));
 });
 
 gulp.task('styles', () => {
