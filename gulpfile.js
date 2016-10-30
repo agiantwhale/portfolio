@@ -8,12 +8,6 @@ const wiredep = require('wiredep').stream;
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
-gulp.task('resume', () => {
-  return $.download('https://github.com/agiantwhale/resume/raw/master/resume.pdf')
-    .pipe(gulp.dest('.tmp/static/'))
-    .pipe(gulp.dest('dist/static/'));
-});
-
 gulp.task('deploy', ['build'], () => {
   return gulp.src('./dist/**/*')
     .pipe($.ghPages({
@@ -128,7 +122,7 @@ gulp.task('keys', () => {
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
-gulp.task('serve', ['resume', 'styles', 'scripts', 'fonts'], () => {
+gulp.task('serve', ['styles', 'scripts', 'fonts'], () => {
   browserSync({
     notify: false,
     port: 9000,
@@ -197,7 +191,7 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras', 'configs', 'keys', 'resume'], () => {
+gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras', 'configs', 'keys'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
