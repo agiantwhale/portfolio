@@ -50,6 +50,26 @@ $grid-gutter-width: 20px;
   margin-bottom: 40px;
   max-width: 400px;
 
+  .intro {
+    margin-top: 60pt;
+
+    p {
+      font-size: 10pt;
+      margin-top: 0;
+      padding: 0 20pt;
+    }
+
+    .en {
+      text-align: left;
+    }
+
+    .kr {
+      text-align: left;
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 9pt;
+    }
+  }
+
   p {
     @extend .text-center;
 
@@ -148,6 +168,10 @@ $grid-gutter-width: 20px;
       }
      }
   }
+
+  .subtitle {
+    @extend .row;
+  }
 }
 
 #contacts {
@@ -182,5 +206,21 @@ $grid-gutter-width: 20px;
 
   .container-header {
     height: 350px;
+  }
+
+  #content {
+    .intro {
+      p {
+        padding: 0;
+      }
+
+      .en {
+        text-align: left;
+      }
+
+      .kr {
+        text-align: right;
+      }
+    }
   }
 }
