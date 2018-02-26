@@ -1,4 +1,5 @@
 @import url(//fonts.googleapis.com/css?family=Playfair+Display:700italic|PT+Sans+Narrow|Vollkorn:400italic,700italic,400,700|Merriweather:400,300,300italic,400italic,700,700italic,900,900italic);
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
 $font-family-sans-serif: 'Vollkorn', serif;
 $headings-font-family: 'Merriweather', serif;
@@ -45,9 +46,49 @@ $grid-gutter-width: 20px;
 
 #content {
   border-radius: 5px;
-  background-color: rgb(255, 255, 255);
   z-index: 10;
   margin-bottom: 40px;
+  max-width: 400px;
+
+  .intro {
+    margin-top: 60pt;
+
+    p {
+      font-size: 10pt;
+      margin-top: 0;
+      padding: 0 20pt;
+    }
+
+    .en {
+      text-align: left;
+    }
+
+    .kr {
+      text-align: left;
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 9pt;
+    }
+  }
+
+  p {
+    @extend .text-center;
+
+    font-size: 14pt;
+    margin-top: 120px;
+
+    em {
+      font-size: 10pt;
+    }
+  }
+
+  .kor {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 9pt;
+
+    em {
+      font-weight: bold;
+    }
+  }
 }
 
 .container-header {
@@ -127,6 +168,16 @@ $grid-gutter-width: 20px;
       }
      }
   }
+
+  .subtitle {
+    @extend .row;
+  }
+}
+
+#contacts {
+  p {
+    font-size: 10pt;
+  }
 }
 
 .heading {
@@ -140,51 +191,6 @@ $grid-gutter-width: 20px;
   color: #7f8c8d;
 }
 
-$project-sub-color: #7f8c8d;
-
-.project {
-  @extend .col-lg-4;
-  @extend .col-sm-6;
-  @extend .col-xs-12;
-  margin-bottom: 10px;
-
-  h3 {
-    @extend .text-center;
-    font-size: 32px;
-    margin: 24px 24px 8px 24px;
-    padding-bottom: 16px;
-    border-color: $project-sub-color;
-    border-width: 0 0 1px 0;
-    border-style: solid;
-  }
-
-  p {
-    @extend .text-center;
-    margin: 0;
-    color: $project-sub-color;
-    line-height: 30px;
-  }
-}
-
-/* Custom page header */
-/*
-*/
-
-.achievement-list {
-  @extend .container;
-  max-width: 560px;
-
-  .achievement-detail {
-    @extend .panel-body;
-    padding-left: 60px;
-  }
-}
-
-.small-icons {
-  @extend .container;
-  max-width: 200px;
-}
-
 /* Custom page footer */
 .footer {
   font-size: 10px;
@@ -194,11 +200,27 @@ $project-sub-color: #7f8c8d;
 }
 
 @media (min-width: $screen-md-min) {
-  .project {
-    margin-bottom: 20px;
-  }
-
   .heading {
     margin-top: 20px;
+  }
+
+  .container-header {
+    height: 350px;
+  }
+
+  #content {
+    .intro {
+      p {
+        padding: 0;
+      }
+
+      .en {
+        text-align: left;
+      }
+
+      .kr {
+        text-align: right;
+      }
+    }
   }
 }
